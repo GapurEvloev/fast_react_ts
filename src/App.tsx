@@ -1,12 +1,17 @@
-import React from 'react';
-import {Product} from "./components/Product/Product";
-import {products} from "./data/products";
+import {Route, Routes} from 'react-router-dom'
+import {ProductsPage} from './pages/ProductsPage'
+import {AboutPage} from './pages/AboutPage'
+import {Navigation} from './components/Navigation'
 
 function App() {
     return (
-        <div className="container m-auto">
-            { products.map(product => <Product product={product} key={product.id} />) }
-        </div>
+        <>
+            <Navigation />
+            <Routes>
+                <Route path="/" element={ <ProductsPage /> } />
+                <Route path="/about" element={ <AboutPage /> } />
+            </Routes>
+        </>
     )
 }
 
